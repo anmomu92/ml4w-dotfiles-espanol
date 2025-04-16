@@ -1,8 +1,8 @@
 # ------------------------------------------------------
 # Header
 # ------------------------------------------------------
-_writeLogHeader "Installation"
-_writeLog 0 "Installation started"
+_writeLogHeader "Instalacion"
+_writeLog 0 "Instalacion comenzada"
 
 clear
 echo -e "${GREEN}"
@@ -13,18 +13,19 @@ cat <<"EOF"
 /_/  /_/____//_/ |__/|__/ /____/\___/\__/_//_/_/\__/___/
 
 EOF
-echo "for Hyprland"
-echo "by Stephan Raabe"
+echo "para Hyprland"
+echo "por Stephan Raabe"
+echo "adaptado al español por Antonio Morán"
 echo -e "${NONE}"
 
 echo "Version: $version"
-echo "Platform: $install_platform"
+echo "Plataforma: $install_platform"
 echo
 # echo ":: You're running the script in $(pwd)"
 if [[ $(_check_update) == "true" ]]; then
-    _writeLog 0 "An existing ML4W Dotfiles installation detected."
-    _writeMessage "This script will guide you through the update process of the ML4W Dotfiles."
+    _writeLog 0 "Una instalacion existente de ML4W Dotfiles ha sido detectada."
+    _writeMessage "Este script le guiará a través del proceso de actualización de ML4W Dotfiles."
 else
-    _writeLog 0 "Initial installation of ML4W Dotfiles started."
-    _writeMessage "This script will guide you through the installation process of the ML4W dotfiles."
+    _writeLog 0 "Instalacion inicial de ML4W Dotfiles comenzada."
+    _writeMessage "Este script le guiará a través del proceso de actualización de ML4W Dotfiles."
 fi

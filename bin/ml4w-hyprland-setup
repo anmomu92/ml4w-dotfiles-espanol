@@ -47,7 +47,7 @@ log_folder="$ml4w_directory/log"
 # -----------------------------------------------------
 # Download Folder
 # -----------------------------------------------------
-download_folder="$HOME/.ml4w"
+download_folder="$HOME/.amm92"
 
 # Create download_folder if not exists
 if [ ! -d $download_folder ]; then
@@ -102,7 +102,7 @@ _run_fullinstall() {
 # -----------------------------------------------------
 _run_nvidia() {
     source $install_directory/header.sh
-    echo ":: With NVIDIA driver installation"
+    echo ":: Con instalación del driver de NVIDIA."
     source $install_directory/packages.sh
     source $install_directory/nvidia.sh
     source $install_directory/dotfiles.sh

@@ -4,12 +4,12 @@ clear
 # -----------------------------------------------------
 # Repository
 # -----------------------------------------------------
-repo="mylinuxforwork/dotfiles"
+repo="anmomu92/ml4w-dotfiles-espanol"
 
 # -----------------------------------------------------
 # Download Folder
 # -----------------------------------------------------
-download_folder="$HOME/.ml4w"
+download_folder="$HOME/.amm92"
 
 # Create download_folder if not exists
 if [ ! -d $download_folder ]; then
@@ -106,23 +106,23 @@ cat <<"EOF"
 /___/_//_/___/\__/\_,_/_/_/\__/_/
 
 EOF
-echo "ML4W Dotfiles for Hyprland"
+echo "Adaptación de los dotfiles de ML4W al español."
 echo -e "${NONE}"
 while true; do
-    read -p "DO YOU WANT TO START THE INSTALLATION NOW? (Yy/Nn): " yn
+    read -p "¿QUIERE COMENZAR LA INSTALACIÓN AHORA? (Ss/Nn): " yn
     case $yn in
-        [Yy]*)
-            echo ":: Installation started."
+        [Ss]*)
+            echo ":: Instalación comenzada."
             echo
             break
             ;;
         [Nn]*)
-            echo ":: Installation canceled"
+            echo ":: Instalación cancelada."
             exit
             break
             ;;
         *)
-            echo ":: Please answer yes or no."
+            echo ":: Por favor, responda sí o no."
             ;;
     esac
 done
@@ -130,7 +130,7 @@ done
 # Create Download folder if not exists
 if [ ! -d $download_folder ]; then
     mkdir -p $download_folder
-    echo ":: $download_folder folder created"
+    echo ":: Directorio $download_folder creado."
 fi
 
 # Remove existing download folder and zip files
@@ -161,41 +161,41 @@ sudo pacman -Sy
 echo
 
 # Install required packages
-echo ":: Checking that required packages are installed..."
+echo ":: Comprobando que los paquetes requeridos estén instalados..."
 _installPackages "${packages[@]}"
 
 # Install yay if needed
 if _checkCommandExists "yay"; then
-    echo ":: yay is already installed"
+    echo ":: yay ya está instalado."
 else
-    echo ":: The installer requires yay. yay will be installed now"
+    echo ":: El instalador requiere de yay. yay será instalado ahora."
     _installYay
 fi
 echo
 
 # Select the dotfiles version
-echo "Please choose between: "
-echo "- ML4W Dotfiles for Hyprland $latest_version (latest stable release)"
-echo "- ML4W Dotfiles for Hyprland Rolling Release (main branch including the latest commits)"
+echo "Por favor, elija entre: "
+echo "- ML4W Dotfiles for Hyprland $latest_version (la última release estable)"
+echo "- ML4W Dotfiles for Hyprland Rolling Release (la rama main, incluyendo los últimos commits)"
 echo
 version=$(gum choose "main-release" "rolling-release" "CANCEL")
 if [ "$version" == "main-release" ]; then
-    echo ":: Installing Main Release"
+    echo ":: Instalando la Main Release"
     yay -S --noconfirm ml4w-hyprland
 elif [ "$version" == "rolling-release" ]; then
-    echo ":: Installing Rolling Release"
+    echo ":: Instalando la Rolling Release"
     yay -S ml4w-hyprland-git
 elif [ "$version" == "CANCEL" ]; then
-    echo ":: Setup canceled"
+    echo ":: Configuración cancelada."
     exit 130
 else
-    echo ":: Setup canceled"
+    echo ":: Configuración cancelada."
     exit 130
 fi
-echo ":: Installation complete."
+echo ":: Instalación completa."
 echo
 # Start Spinner
-gum spin --spinner dot --title "Starting setup now..." -- sleep 3
+gum spin --spinner dot --title "Comenzando la configuración ahora..." -- sleep 3
 
 # Start setup
 ml4w-hyprland-setup -p arch
