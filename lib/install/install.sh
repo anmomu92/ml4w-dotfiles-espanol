@@ -30,7 +30,7 @@ if [ -f $bin_directory/ml4w-hyprland-setup ]; then
     sudo rm $bin_directory/ml4w-hyprland-setup
 fi
 sudo cp $source_bin_directory/ml4w-hyprland-setup $bin_directory
-echo ":: $source_bin_directory/ml4w-hyprland-setup installed"
+echo ":: $source_bin_directory/ml4w-hyprland-setup instalado."
 
 # share
 if [ -d $share_directory ]; then
@@ -38,7 +38,7 @@ if [ -d $share_directory ]; then
 fi
 sudo mkdir -p $share_directory
 sudo cp -ar $source_share_directory/. $share_directory
-echo ":: $share_directory installed"
+echo ":: $share_directory instalado."
 
 # lib
 if [ -d $lib_directory ]; then
@@ -46,8 +46,8 @@ if [ -d $lib_directory ]; then
 fi
 sudo mkdir -p $lib_directory
 sudo cp -ar $source_lib_directory/. $lib_directory
-echo ":: $lib_directory installed"
+echo ":: $lib_directory instalado."
 
 echo
 
-echo ":: ML4W Dotfiles installed successfully"
+echo ":: ML4W Dotfiles instalado exitosamente."

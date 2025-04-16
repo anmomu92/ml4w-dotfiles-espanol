@@ -4,10 +4,10 @@ sleep 1
 _runUpdate() {
     case $install_platform in
         arch)
-            bash <(curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/setup-arch.sh)
+            bash <(curl -s https://raw.githubusercontent.com/anmomu92/ml4w-dotfiles-espanol/main/setup-arch.sh)
             ;;
         fedora)
-            bash <(curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/setup-fedora.sh)
+            bash <(curl -s https://raw.githubusercontent.com/anmomu92/ml4w-dotfiles-espanol/main/setup-fedora.sh)
             ;;
         CANCEL)
             _writeCancel
