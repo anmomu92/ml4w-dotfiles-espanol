@@ -10,7 +10,7 @@ clear
 dot_folder=""
 
 _activate_dotfiles_folder() {
-    echo ":: Activating $dot_folder now..."
+    echo ":: Activando $dot_folder ahora..."
     echo
 
     # Check home
@@ -103,12 +103,12 @@ _activate_dotfiles_folder() {
 }
 
 _define_dotfiles_folder() {
-    dot_folder_tmp=$(gum input --value "$dot_folder" --placeholder "Enter your installation folder name")
+    dot_folder_tmp=$(gum input --value "$dot_folder" --placeholder "Escriba el nombre de su directorio de instalación.")
     dot_folder=${dot_folder_tmp//[[:blank:]]/}
     if [ $dot_folder == "cancel" ]; then
         exit
     elif [ $dot_folder == ".ml4w-hyprland" ]; then
-        echo ":: The folder .ml4w-hyprland is not allowed."
+        echo ":: El directorio .ml4w-hyprland no está permitido."
         _define_dotfiles_folder
     else
         _confirm_dotfiles_folder
@@ -117,27 +117,27 @@ _define_dotfiles_folder() {
 
 _confirm_dotfiles_folder() {
     if [ -d ~/$dot_folder ] && [ -d ~/$dot_folder/.config/ml4w ]; then
-        echo ":: ML4W Dotfiles folder ~/$dot_folder selected."
+        echo ":: Directorio ~/$dot_folder seleccionado."
         echo
-        if gum confirm "Do you want to activate now?"; then
+        if gum confirm "¿Quiere activar ahora?"; then
             _activate_dotfiles_folder
         else
             _writeCancel
             exit
         fi
     else
-        echo "ERROR: The folder doesn't exits or isn't a compatible ML4W Dotfiles installation."
-        echo "Please update the folder name!"
+        echo "ERROR: El directorio no existe o no es compatible."
+        echo "Por favor, actualice el nombre del directorio."
         echo
         _define_dotfiles_folder
     fi
 }
 
 figlet -f smslant "Activate"
-echo ":: You can activate an exiting ML4W Dotfiles installation."
+echo ":: Puede activar una instalación ML4W Dotfiles existente."
 echo
-echo ":: Please enter the name of the installation folder starting from your home directory."
-echo ":: (e.g., dotfiles or Documents/mydotfiles, ...)"
-echo ":: Enter cancel to exit"
+echo ":: Por favor, escriba el nombre del directorio de instalación, empezando desde su directorio HOME."
+echo ":: (e.g., dotfiles o Documents/mydotfiles, ...)"
+echo ":: Escriba cancel para salir."
 echo
 _define_dotfiles_folder
